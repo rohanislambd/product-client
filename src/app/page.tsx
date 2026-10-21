@@ -1,10 +1,16 @@
 import AddProductFrom from "@/components/AddProductfrom";
-import { Button } from "@/components/ui/button";
+import Products from "@/components/Products";
+import { IProducts } from "@/types/type";
 
-export default function Home() {
+export default async function Home() {
+
+  const res = await fetch ('http://localhost:8000/products');
+  const products:IProducts[] = await res.json();
+  
   return (
     <div>
        <AddProductFrom/>
+       <Products  products={products}/>
     </div>
   );
 }
