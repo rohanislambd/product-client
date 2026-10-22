@@ -2,9 +2,10 @@ import { IProducts } from '@/types/type';
 import React from 'react';
 import { Card, CardContent } from './ui/card';
 import Image from 'next/image';
+import EditProductDialog from './EditProductDialog';
 
 const Products = ({products}:{products:IProducts[]}) => {
-    console.log(products);
+   
     return (
         <div className=' container mx-auto grid grid-cols-3 gap-5'>
             {
@@ -21,6 +22,8 @@ const Products = ({products}:{products:IProducts[]}) => {
         
                           <h1>{product.name}</h1>
                           <p>{product.price}</p>
+
+                          <EditProductDialog product={product}/>
                     </CardContent>
                 </Card>)
             }
