@@ -5,8 +5,10 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const AddProductFrom = () => {
+   const router = useRouter();
     const handleSubmit =async (e:React.FormEvent<HTMLFormElement>) => {
          e.preventDefault();
          
@@ -22,6 +24,7 @@ const AddProductFrom = () => {
         })
         const result =await res.json();
         console.log(result);
+        router.refresh()
     }
   return (
     <div className="container mx-auto">

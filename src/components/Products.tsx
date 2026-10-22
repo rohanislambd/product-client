@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent } from './ui/card';
 import Image from 'next/image';
 import EditProductDialog from './EditProductDialog';
+import { DeleteProductDialog } from './DeleteProductDialog';
 
 const Products = ({products}:{products:IProducts[]}) => {
    
@@ -24,6 +25,7 @@ const Products = ({products}:{products:IProducts[]}) => {
                           <p>{product.price}</p>
 
                           <EditProductDialog product={product}/>
+                          <DeleteProductDialog id={product._id}/>
                     </CardContent>
                 </Card>)
             }
